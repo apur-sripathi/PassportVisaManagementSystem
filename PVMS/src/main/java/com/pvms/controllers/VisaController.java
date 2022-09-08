@@ -21,20 +21,23 @@ public class VisaController {
 	@Autowired
 	VisaServiceImpl visaServiceImpl;
 	
+	//gets all the visa details.
 	@GetMapping("/getVisaDetails")
 	public List<ApplyVisa> getVisaDetails(){
 		return visaServiceImpl.getVisaDetails();
 	}
 	
+	//gets visa details based on user id.
 	@GetMapping("/getVisaByRegId/{id}")
 	public List<ApplyVisa> getByRegId(@PathVariable("id") String id){
 		return visaServiceImpl.getByRegId(id);
 	}
+	//Inserts visa details into database
 	@PostMapping("/insertVisa")
 	public String insertVisa(@RequestBody ApplyVisa applyVisa) {
 		return visaServiceImpl.insertVisaDetails(applyVisa);
 	}
-	
+	//cancels visa by making status="expired";
 	@PostMapping("/cancelVisa")
 	public String cancelVisa(@RequestBody ApplyVisa applyVisa) {
 		return visaServiceImpl.cancelVisa(applyVisa);

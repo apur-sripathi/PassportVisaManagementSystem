@@ -19,25 +19,28 @@ public class CityController {
 	@Autowired
 	CityServiceImpl cityServiceImpl;
 	
+	//fetches City Name if city id is given
 	@GetMapping("getCityName/{cityId}")
 	public String getCityName(@PathVariable("cityId") String cityId)
 	{
 	return cityServiceImpl.getCityName(cityId);	
 	}
 	
-	
+	//fetches List of cities based on state Id
 	@GetMapping("getCityByState/{stateId}")
 	public List<City> getCityByState(@PathVariable("stateId") String stateId)
 	{
 	return cityServiceImpl.getCityByState(stateId);	
 	}
 	
+	//fetches all the sate details.
 	@GetMapping("getAllState")
 	public List<State> getAllState()
 	{
 	return cityServiceImpl.getAllStates();	
 	}
 	
+	//fetches state details based on state id.
 	@GetMapping("getStateById/{id}")
 	public State getStateById(@PathVariable("id") String id)
 	{
