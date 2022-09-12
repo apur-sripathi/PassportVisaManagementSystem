@@ -106,7 +106,7 @@ public class PassportServiceImpl implements PassportService {
 			yy.get(0).setExpiryDate(LocalDate.now().minusDays(1));
 		}
 		
-		
+		//saved to passport repository.
 		passportRepository.save(yy.get(0));
 		applyPassport.setPassId(generateUserId(applyPassport.getBookletType()));
 		applyPassport.setExpiryDate(applyPassport.getIssueDate().plusYears(10));
